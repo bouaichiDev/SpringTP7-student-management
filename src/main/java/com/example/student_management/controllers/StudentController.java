@@ -1,7 +1,6 @@
 package com.example.student_management.controllers;
 
 
-import com.example.student_management.dto.StudentCountByYear;
 import com.example.student_management.entity.Student;
 import com.example.student_management.services.StudentService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -10,7 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/api")
@@ -49,8 +50,9 @@ public class StudentController {
     }
 
     @GetMapping("/byYear")
-    public ResponseEntity<List<StudentCountByYear>> findByYear() {
-        List<StudentCountByYear> studentsByYear = studentService.findNbrStudentByYear();
+     
+    public ResponseEntity<Collection<?>> findByYear() {
+        Collection<?> studentsByYear = studentService.findNbrStudentByYear();
         return new ResponseEntity<>(studentsByYear, HttpStatus.OK);
     }
 }

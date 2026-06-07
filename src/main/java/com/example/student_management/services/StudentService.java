@@ -1,12 +1,13 @@
 package com.example.student_management.services;
 
-import com.example.student_management.dto.StudentCountByYear;
 import com.example.student_management.entity.Student;
 import com.example.student_management.repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class StudentService {
@@ -33,7 +34,7 @@ public class StudentService {
         return studentRepository.count();
     }
 
-    public List<StudentCountByYear> findNbrStudentByYear() {
+    public Collection<Objects[]> findNbrStudentByYear() {
         return studentRepository.findNbrStudentByYear();
     }
 }
